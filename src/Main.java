@@ -2,19 +2,23 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] dizi = {1, 5, 4, 6, 7, 3, 4, 2, 1, 7, 8, 20, 10};
-        int[] tekrarEdenler=new int[(dizi.length+1)/2];
-        int tekrar=0;
+        int[] list = {1, 5, 4, 6, 7, 3, 4, 2, 1, 7, 8, 20, 10,10,10,20,20,1,7,7};
+        repeatingNum(list);
+    }
 
-        for (int i = 0; i < dizi.length - 1; i++) {
-            for (int j = i + 1; j < dizi.length; j++) {
-                if(dizi[i]==dizi[j]){
-                    tekrarEdenler[tekrar]=dizi[i];
-                    tekrar++;
+    static void repeatingNum(int[] list) {
+        Arrays.sort(list);
+        for (int i = 0; i < list.length-1; i++) {
+            if (i == 0) {
+                if (list[i] == list[i + 1]) {
+                    System.out.print(list[i] + ",");
+                }
+            } else {
+                if (list[i] == list[i - 1]) {
+                } else if (list[i] == list[i + 1]) {
+                    System.out.print(list[i] + ",");
                 }
             }
         }
-        tekrarEdenler=Arrays.copyOf(tekrarEdenler,tekrar);
-        System.out.println(Arrays.toString(tekrarEdenler));
     }
 }
